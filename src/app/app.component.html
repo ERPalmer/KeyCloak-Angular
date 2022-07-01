@@ -1,0 +1,34 @@
+<h1>KeyCloak >> Angular</h1>
+
+		<button *ngIf="isLogueado" type="button" (click)="cerrarSesion()">Cerrar Sesión</button>
+		<button *ngIf="!isLogueado" type="button" (click)="iniciarSesion()">Iniciar Sesión</button>
+
+		<ng-container *ngIf="perfilUsuario">
+		  <h2>Información del Usuario</h2>
+		  <table>
+			<tr *ngIf="perfilUsuario.id">
+			  <th scope="row">ID Usuario</th>
+			  <td>{{ perfilUsuario.id }}</td>
+			</tr>
+		    <tr *ngIf="perfilUsuario.username">
+		      <th scope="row">Nombre de Usuario</th>
+		      <td>{{ perfilUsuario.username }}</td>
+		    </tr>
+		    <tr *ngIf="perfilUsuario.firstName">
+		      <th scope="row">Nombre</th>
+		      <td>{{ perfilUsuario.firstName }}</td>
+		    </tr>
+		    <tr *ngIf="perfilUsuario.lastName">
+		      <th scope="row">Apellido</th>
+		      <td>{{ perfilUsuario.lastName }}</td>
+		    </tr>
+		    <tr *ngIf="perfilUsuario.email">
+		      <th scope="row">Correo Electrónico</th>
+		      <td>{{ perfilUsuario.email }}</td>
+		    </tr>
+		    <tr>
+		      <th scope="row">Correo Verificado</th>
+		      <td>{{ perfilUsuario.emailVerified ? 'Si' : 'No' }}</td>
+		    </tr>
+		  </table>
+		</ng-container>
